@@ -4,6 +4,12 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 
+def get_parameters():
+    max_value = 2000
+    step = 1
+    return max_value, step
+
+
 def generate_vector(n, max_value=10000):
     return [random.randint(0, max_value) for _ in range(n)]
 

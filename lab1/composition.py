@@ -1,5 +1,5 @@
 from lab1.timer import timeit
-from lab1.helper import generate_vector, make_plot
+from lab1.helper import generate_vector, make_plot, get_parameters
 
 
 @timeit
@@ -10,9 +10,7 @@ def get_composition(array):
 
 
 if __name__ == "__main__":
-    max_value = 1900
-    k = max_value / 10
-    step = 1
+    max_value, step = get_parameters()
     x = [i for i in range(0, max_value, step)]
     time = []
     for vector_len in [i for i in range(0, max_value, step)]:
