@@ -2,6 +2,17 @@ import random
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
+import time
+
+
+def timeit(method):
+    def timed(*args, **kw):
+        ts = time.time()
+        result = method(*args, **kw)
+        te = time.time()
+        return (te - ts) * 1000
+
+    return timed
 
 
 def get_parameters():

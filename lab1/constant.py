@@ -1,5 +1,4 @@
-from lab1.timer import timeit
-from lab1.helper import generate_vector, make_plot, get_parameters
+from lab1.helper import generate_vector, make_plot, get_parameters, timeit
 
 
 @timeit
