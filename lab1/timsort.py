@@ -17,7 +17,6 @@ def quicksort(array):
             right = quick_sort(right)
         return right + [pivot] + left
 
-
     quick_sort(array)
 
 
@@ -28,4 +27,4 @@ if __name__ == "__main__":
     for vector_len in [i for i in range(1, max_value, step)]:
         vector = generate_vector(vector_len)
         time.append(quicksort(vector))
-    make_plot(x, time, 'Quick sort', 2)
+    make_plot(x, time, 'Timsort', 2)
