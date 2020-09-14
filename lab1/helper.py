@@ -41,4 +41,4 @@ def make_plot(x, y, label, d=1):
     ax.set_xlabel('Vector length')
     ax.set_ylabel('Time, ms')
     ax.legend()
-    plt.savefig(f'./results/{label}.svg', format='svg')
+    plt.savefig(f'lab1/results/{label}.svg', format='svg')
