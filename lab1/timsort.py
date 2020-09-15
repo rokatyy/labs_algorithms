@@ -79,6 +79,10 @@ def timsort(array, length):
 
         size *= 2
 
+@timeit
+def builtin_timsort(array):
+    sorted(array)
+
 
 if __name__ == "__main__":
     max_value, step = get_parameters()
@@ -88,3 +92,10 @@ if __name__ == "__main__":
         vector = generate_vector(vector_len)
         time.append(timsort(vector, vector_len))
     make_plot(x, time, 'Timsort', 2)
+
+    time = []
+    for vector_len in [i for i in range(1, max_value, step)]:
+        vector = generate_vector(vector_len)
+        time.append(builtin_timsort(vector))
+    make_plot(x, time, 'Builtin_Timsort', 2)
+
