@@ -4,7 +4,11 @@ import numpy as np
 
 def exhaustive_search(a, b, e, func):
     n = ceil((b - a) / e)
-    minimum = min([func(a + k * (b - a)) for k in range(n)])
+    minimum = None
+    for k in range(n):
+        x = a + k * (b - a)/n
+        if not minimum or func(x)<func(minimum):
+            minimum = x
     return minimum, n
 
 
