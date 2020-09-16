@@ -21,7 +21,7 @@ def get_parameters():
     return max_value, step
 
 
-def generate_vector(n, max_value=10000):
+def generate_vector(n, max_value=1000):
     return [random.randint(0, max_value) for _ in range(n)]
 
 

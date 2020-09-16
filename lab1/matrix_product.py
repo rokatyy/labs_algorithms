@@ -12,7 +12,8 @@ if __name__ == "__main__":
     x = [i for i in range(1, max_value + 1, step)]
     time = []
     for n in [i for i in range(1, max_value + 1, step)]:
+        print(n)
         matrix1 = [generate_vector(n) for _ in range(n)]
         matrix2 = [generate_vector(n) for _ in range(n)]
         time.append(matrix_product(matrix1, matrix2))
-    make_plot(x, time, 'Matrix product')
+    make_plot(x, time, 'Matrix product_2000',3)
