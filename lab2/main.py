@@ -1,6 +1,7 @@
 import numpy as np
 import direct_methods
 import math
+import random
 import helper
 
 a = 0.01
@@ -23,7 +24,16 @@ def one_dimensional(y, description, a, b, e):
 
 
 if __name__ == "__main__":
-    funcs = [((lambda x: x ** 3), 'x^3'), ((lambda x: abs(x - 0.2)), '|x - 0.2|'), (lambda x: x* math.sin(1/x),'x * sin(1/x)')]
+    # Part1
+    funcs = [((lambda x: x ** 3), 'x^3'), ((lambda x: abs(x - 0.2)), '|x - 0.2|'),
+             (lambda x: x * math.sin(1 / x), 'x * sin(1/x)')]
 
     for y in funcs:
         one_dimensional(y[0], y[1], a, b, e)
+
+    # Part2
+    alpha = random.randint(0, 1000) / 1000
+    beta = random.randint(0, 1000) / 1000
+    s = np.random.normal(size=100)
+    x = lambda k: k / 100
+    y = lambda k: alpha * k/100 + beta + s[k]

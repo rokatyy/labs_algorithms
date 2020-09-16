@@ -1,13 +1,14 @@
 from math import ceil, fabs
 import numpy as np
+from scipy.optimize import minimize, least_squares
 
 
 def exhaustive_search(a, b, e, func):
     n = ceil((b - a) / e)
     minimum = None
     for k in range(n):
-        x = a + k * (b - a)/n
-        if not minimum or func(x)<func(minimum):
+        x = a + k * (b - a) / n
+        if not minimum or func(x) < func(minimum):
             minimum = x
     return minimum, n
 
@@ -49,5 +50,9 @@ def gauss():
     pass
 
 
-def nelder_mead():
-    pass
+def nelder_mead(func, x):
+    return minimize(func, x, method='nelder-mead')
+
+
+def gauss(func, x):
+    return least_squares(func, x)
