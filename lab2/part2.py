@@ -19,13 +19,22 @@ reg = linear_model.LinearRegression()
 for method, name in zip([linear, rational], ['linear', 'rational']):
     popt, pcov = curve_fit(method, X, Y)
     popt_exh = exhaustive_search_multi(method, X, Y)
-    res = minimize(loss, popt, method='nelder-mead', args=(X, Y, method), tol=eps)
+    res = minimize(loss, popt, method='nelder-mead', args=(X, Y, method),options={ 'xatol':eps, 'disp':True})
+    print('{}'.format(res.x))
     nelder_a, nelder_b = res.x
 
     Y_nelder = [method(x, res.x[0], res.x[1]) for x in X]
-    reg.fit(np.array(X).reshape(-1, 1), Y)
-    popt_gaussf = reg.coef_, reg.intercept_
 
+    Y_r = [1 / y for y in Y]
+    if name is 'rational':
+        reg = linear_model.LinearRegression()
+        reg.fit(np.array(X).reshape(-1, 1), Y_r)
+        a = 1 / reg.intercept_
+        popt_gaussf = 1 / reg.intercept_, reg.coef_ / reg.intercept_
+    else:
+
+        reg.fit(np.array(X).reshape(-1, 1), Y)
+        popt_gaussf = reg.coef_, reg.intercept_
     print(
         f'Results:\n\t exhastive search: {popt_exh[0]}, {popt_exh[1]}\n\t Linear: {popt[0]},{popt[1]}\n\t Nelder-Mead:  {nelder_a},{nelder_b}\n\tGauss: {popt_gaussf[0]},{popt_gaussf[1]}\n\t')
 

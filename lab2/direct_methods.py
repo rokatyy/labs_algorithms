@@ -1,6 +1,7 @@
 from math import ceil, fabs
 import numpy as np
 
+
 def exhaustive_search(a, b, e, func):
     n = ceil((b - a) / e)
     minimum = None
@@ -48,9 +49,9 @@ linear = lambda x, a, b: a * x + b
 rational = lambda x, a, b: a / (1 + b * x)
 
 
-def exhaustive_search_multi(func, X, Y, k=100, e=0.001):
-    a_min, a_max = -2, 2
-    b_min, b_max = -2, 2
+def exhaustive_search_multi(func, X, Y, k=100, e=0.1):
+    a_min, a_max = -2, 5
+    b_min, b_max = -2, 5
     n_a = ceil((a_max - a_min) / e)
     n_b = ceil((b_max - b_min) / e)
     min_pair = None
@@ -76,6 +77,4 @@ def D(func, a, b, k, X, Y):
         return sum([(func(X[i], a, b) - Y[i]) ** 2 for i in range(k)])
     # а это костыль
     except:
-        return 10**2
-
-
+        return 10 ** 2
