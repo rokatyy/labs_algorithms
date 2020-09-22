@@ -25,12 +25,12 @@ def conjugate_gradient_descent(x0, X, Y):
 
 
 def Levenberg_Marquardt(x0, X, Y):
-    # res = optimize.least_squares(loss, x0, method='lm', args=(X, Y),jac=jacobian(loss) )
-    #param = Parameters()
-    #param.add('a', value=float(x0[0]), min=-100, max=100)
-    #param.add('b', value=float(x0[1]), min=-100, max=100)
-    #res = minimize(special_loss, param, args=(X, Y), method='leastsq')
-    res = optimize.minimize(loss, [0, 0], args=(X, Y), tol=eps, method='BFGS', options={'disp': True})
+    res = optimize.least_squares(loss, x0, method='lm', args=(X, Y),jac=jacobian(loss) )
+    param = Parameters()
+    param.add('a', value=float(x0[0]), min=-100, max=100)
+    param.add('b', value=float(x0[1]), min=-100, max=100)
+    res = minimize(special_loss, param, args=(X, Y), method='leastsq')
+
     return res
 
 
