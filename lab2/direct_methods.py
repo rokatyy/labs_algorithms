@@ -1,5 +1,12 @@
 from math import ceil, fabs
 import numpy as np
+import functools
+
+rational = lambda x, a, b: a / (1 + b * x)
+
+
+def linear(x, a, b):
+    return a * x + b
 
 
 def exhaustive_search(a, b, e, func):
@@ -43,10 +50,6 @@ def golden_section(a, b, e, func):
         iterations += 1
 
     return (a, b), iterations
-
-
-linear = lambda x, a, b: a * x + b
-rational = lambda x, a, b: a / (1 + b * x)
 
 
 def exhaustive_search_multi(func, X, Y, k=100, e=0.1):
