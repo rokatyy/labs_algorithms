@@ -1,23 +1,30 @@
 from lab5.helper import generate_matrix, transfer_matrix_to_adj
 
 
-queue = []
-
-
-def bfs(visited, graph, node):
-    visited.append(node)
-    queue.append(node)
-
+def BFS(graph, start, goal):
+    explored = []
+    queue = [[start]]
+    if start == goal:
+        return start
     while queue:
-        s = queue.pop(0)
-        print(s, end=" ")
+        path = queue.pop(0)
+        node = path[-1]
+        if node not in explored:
+            neighbours = graph[node]
+            for neighbour in neighbours:
+                new_path = list(path)
+                new_path.append(neighbour)
+                queue.append(new_path)
+                if neighbour == goal:
+                    return new_path
+            explored.append(node)
 
-        for neighbour in graph[s]:
-            if neighbour not in visited:
-                visited.append(neighbour)
-                queue.append(neighbour)
+    print("Not connected")
+    return
 
 
 m = generate_matrix()
 graph = transfer_matrix_to_adj(m)
-bfs([], graph,0)
+print(graph)
+x=BFS(graph, 0, 1)
+print(x)
