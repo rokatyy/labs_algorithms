@@ -10,7 +10,7 @@ def generate_matrix(n=100, edges=200):
             break
         for i in range(n - 1):
             for j in range(i + 1, n):
-                value = np.random.randint(0, 100) < expected_probability
+                value = np.random.randint(0, 100) <= expected_probability
                 if value and cur_edges < edges and not matrix[i][j]:
                     matrix[j][i] = matrix[i][j] = int(value)
                     cur_edges += 1
