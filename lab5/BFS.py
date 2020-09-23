@@ -1,10 +1,13 @@
+from collections import deque
+
+
 def bfs(graph, start, goal):
     explored = []
-    queue = [[start]]
+    queue = deque([[start]])
     if start == goal:
         return start
     while queue:
-        path = queue.pop(0)
+        path = queue.popleft()
         node = path[-1]
         if node not in explored:
             neighbours = graph[node]
