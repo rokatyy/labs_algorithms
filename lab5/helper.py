@@ -1,4 +1,5 @@
 import numpy as np
+from lab5.BFS import bfs
 
 
 def generate_matrix(n=100, edges=200):
@@ -27,3 +28,8 @@ def transfer_matrix_to_adj(matrix):
                 adj_list[j].append(i)
     return adj_list
 
+m = generate_matrix()
+adj = transfer_matrix_to_adj(m)
+src = np.random.randint(0,100)
+dest = np.random.randint(0,100)
+print(bfs(adj, src, dest))

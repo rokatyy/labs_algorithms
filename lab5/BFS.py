@@ -1,7 +1,4 @@
-from lab5.helper import generate_matrix, transfer_matrix_to_adj
-
-
-def BFS(graph, start, goal):
+def bfs(graph, start, goal):
     explored = []
     queue = [[start]]
     if start == goal:
@@ -21,10 +18,3 @@ def BFS(graph, start, goal):
 
     print("Not connected")
     return
-
-
-m = generate_matrix()
-graph = transfer_matrix_to_adj(m)
-print(graph)
-x=BFS(graph, 0, 1)
-print(x)
