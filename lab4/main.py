@@ -51,7 +51,7 @@ print('lm1', res_lm_1, loss(res_lm_1[0]))
 #res_bh = basinhopping(loss, popt)
 #print('bh', res_bh)
 bounds = [(-2,2), (-2, 2), (-2, 2), (-2, 2)]
-res_de = differential_evolution(loss,bounds, tol=0.0001, disp=True, maxiter=1000)
+res_de = differential_evolution(loss,bounds, tol=0.001, disp=True, maxiter=1000)
 print('de', res_de, loss(res_de.x))
 res_da = dual_annealing(loss, bounds,maxiter=1000)
 print('da', res_da, loss(res_da.x))
