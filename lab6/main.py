@@ -4,7 +4,7 @@ from random import randint
 from time import time
 from timeit import timeit
 
-G = nx.from_numpy_matrix(generate_matrix(400, 2000))
+G = nx.from_numpy_matrix(generate_matrix(100, 500))
 src = randint(0, 100)
 d_time = 0
 fb_time = 0
