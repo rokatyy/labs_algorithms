@@ -12,3 +12,6 @@ def max_sum_subseq_fast(items):
         if temp_sum > max_sum:
             max_sum = temp_sum
     return max_sum if max_sum > 0 else 0
+nums = [4,1,-9,2,19,4,-2]
+ob1 = max_sum_subseq_fast(nums)
+print(ob1)
